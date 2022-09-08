@@ -1,10 +1,11 @@
 <script  setup lang="ts">
 import * as THREE from 'three'
-import { onMounted } from 'vue'
+import { onMounted, ref } from 'vue'
 import { MMDLoader } from 'three/examples/jsm/loaders/MMDLoader'
 //引入轨道控制器（用来通过鼠标事件控制模型旋转、缩放、移动），没有这个需求可不引入
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls'
 import Menu from './Menu.vue'
+import UpLoadButton from './UpLoadButton.vue'
 const scene = new THREE.Scene()
 const width = window.innerWidth, height = window.innerHeight,
 	camera = new THREE.PerspectiveCamera(45, width / height, 1, 1000)
@@ -79,20 +80,27 @@ controls.addEventListener('change', () => {
 })
 </script>
 <template>
-	<div id="keli" ><div id="menu" ><Menu/></div></div>
-	
+	<div id="keli">
+		<div id="menu">
+			<Menu />
+		</div>
+	</div>
+
+
 </template>
 
 <style>
-	div{
-		overflow: hidden;
-		position: fixed;
-	}
-#menu{
-	right: 500px;
-	top: 100px;
+div {
+	overflow: hidden;
+	position: fixed;
 }
-#keli{
+
+#menu {
+	left: 5%;
+	top: 5%;
+}
+
+#keli {
 	float: left;
 }
 </style>

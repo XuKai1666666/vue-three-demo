@@ -1,6 +1,8 @@
 <template>
     <a-upload-dragger v-model:fileList="fileList" name="file" :multiple="true"
-        action="https://www.mocky.io/v2/5cc8019d300000980a055e76" @change="handleChange" @drop="handleDrop">
+        action="https://www.mocky.io/v2/5cc8019d300000980a055e76" @change="handleChange" @drop="handleDrop"
+        v-if="getVisable"
+        >
         <p class="ant-upload-drag-icon">
             <inbox-outlined></inbox-outlined>
         </p>
@@ -16,6 +18,9 @@ import { InboxOutlined } from '@ant-design/icons-vue';
 import { message } from 'ant-design-vue';
 import {  ref } from 'vue';
 import type { UploadChangeParam } from 'ant-design-vue';
+defineProps<{
+    getVisable?: boolean
+}>()
 const handleChange = (info: UploadChangeParam) => {
     const status = info.file.status;
     if (status !== 'uploading') {
