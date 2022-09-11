@@ -89,7 +89,7 @@ controls.addEventListener('change', () => {
 
 </template>
 
-<style>
+<style scoped>
 div {
 	overflow: hidden;
 	position: fixed;

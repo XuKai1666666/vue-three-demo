@@ -108,7 +108,7 @@ export default defineComponent({
 });
 </script>
 
-<style>
+<style scoped>
 div {
   overflow: hidden;
   position: fixed;
@@ -117,6 +117,8 @@ div {
 .ULButton {
   left: 12%;
   top: 8%;
+  width: 300px;
+  
 }
 </style>
   
