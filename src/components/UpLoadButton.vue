@@ -1,7 +1,8 @@
 <template>
     <div id="container">
-        <a-upload-dragger v-model:fileList="fileList" name="file" :multiple="true" :action=UploadDataList
-            @change="handleChange" @drop="handleDrop" v-if="getVisable" >
+        <a-upload-dragger v-model:fileList="fileList" name="file" :multiple="true"
+            action="https://www.mocky.io/v2/5cc8019d300000980a055e76" @change="handleChange" @drop="handleDrop"
+            v-if="getVisable">
             <p class="ant-upload-drag-icon">
                 <inbox-outlined></inbox-outlined>
             </p>
@@ -17,14 +18,14 @@ import { InboxOutlined } from '@ant-design/icons-vue';
 import { message } from 'ant-design-vue';
 import { ref } from 'vue';
 import type { UploadChangeParam } from 'ant-design-vue';
-const UploadDataList = [
-    {
-        name: "xxx.png",
-        status: "done",
-        url: "https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png",
-        thumbUrl: "https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
-    }
-]
+// const UploadDataList = [
+//     {
+//         name: "xxx.png",
+//         status: "done",
+//         url: "https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png",
+//         thumbUrl: "https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
+//     }
+// ]
 defineProps<{
     getVisable?: boolean
 }>()
@@ -48,6 +49,8 @@ function handleDrop(e: DragEvent) {
 #container {
     width: 300px;
     height: auto;
+    background-color: #ffffff;
+    padding: 10px;
 }
 </style>
   
