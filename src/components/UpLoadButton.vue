@@ -2,6 +2,7 @@
     <div id="container" v-if="getVisable">
         <a-upload-dragger v-model:fileList="fileList" name="file" :multiple="true"
             action="https://www.mocky.io/v2/5cc8019d300000980a055e76" @change="handleChange" @drop="handleDrop"
+            accept=".pmx,.pmd"
             >
             <p class="ant-upload-drag-icon">
                 <inbox-outlined></inbox-outlined>

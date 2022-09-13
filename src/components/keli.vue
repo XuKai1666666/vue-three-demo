@@ -1,11 +1,20 @@
 <script  setup lang="ts">
 import * as THREE from 'three'
-import { onMounted, ref } from 'vue'
+import { onMounted } from 'vue'
 import { MMDLoader } from 'three/examples/jsm/loaders/MMDLoader'
 //引入轨道控制器（用来通过鼠标事件控制模型旋转、缩放、移动），没有这个需求可不引入
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls'
 import Menu from './Menu.vue'
-import UpLoadButton from './UpLoadButton.vue'
+const props =defineProps<{
+    getVisable?: boolean,
+	uuid?:string,
+	name?:string,
+	modelCoordinateX:number,
+	modelCoordinateY:number,
+	modelCoordinateZ:number,
+	modelCoordinateScale:number,
+	url:string,
+}>()
 const scene = new THREE.Scene()
 const width = window.innerWidth, height = window.innerHeight,
 	camera = new THREE.PerspectiveCamera(45, width / height, 1, 1000)
@@ -20,7 +29,7 @@ pointLight.position.set(200, 300, 400)
 scene.add(ambientLight)
 scene.add(pointLight)
 scene.background = new THREE.Color(0x3b5556);
-camera.position.set(90, -50, -50)
+camera.position.set(props.modelCoordinateX, props.modelCoordinateY, props.modelCoordinateZ)
 camera.lookAt(100, 100, 100)
 
 // const geometry = new THREE.BoxGeometry(100, 100, 100)
@@ -45,10 +54,10 @@ const loader = new MMDLoader();
 // Load a MMD model
 loader.load(
 	// path to PMD/PMX file
-	'src/assets/keli/可莉2.0.pmx',
+	props.url,
 	// called when the resource is loaded
 	function (mesh) {
-		mesh.scale.set(3, 3, 3);
+		mesh.scale.set(props.modelCoordinateScale, props.modelCoordinateScale, props.modelCoordinateScale);
 		scene.add(mesh);
 		renderer.setSize(width, height)
 		renderer.render(scene, camera)

@@ -3,10 +3,11 @@
 // Check out https://vuejs.org/api/sfc-script-setup.html#script-setup
 import HelloWorld from './components/HelloWorld.vue'
 import Keli from './components/keli.vue'
+import ModelStage from './components/ModelStage.vue';
 </script>
 
 <template>
-  <Keli />
+<ModelStage/>
 </template>
 
 <style scoped>
